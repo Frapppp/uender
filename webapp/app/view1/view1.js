@@ -36,9 +36,7 @@ function legastenize(noticeText) {
         textArray[j] = dots (textArray[j]);
         textArray[j] = typo (textArray[j]);
     }
-
-
-    return textArray;
+    return textArray.toString();
 }
 
 function dots(word) {

@@ -14,8 +14,6 @@ angular.module('myApp.view1', ['ngRoute'])
         $scope.convertText = function () {
 
             if ($scope.noticeText != undefined) {
-                //var textArr = $scope.noticeText.split(" ");
-
                 $scope.result = legastenize($scope.noticeText);
             }
         }
@@ -24,7 +22,7 @@ angular.module('myApp.view1', ['ngRoute'])
 function legastenize(noticeText) {
 
     var textArray = noticeText.split(" ");
-    console.log(textArray);
+
     var leggoArray = [];
     for (var i = 0; i < textArray.length; i++) {
         leggoArray [i] = Math.random();
@@ -33,11 +31,10 @@ function legastenize(noticeText) {
     var leggoDegree = 0.5;
 
 
-    for (var j = 0; i < textArray.length; i++) {
-        console.log(textArray[i]);
-        textArray[i] = ing (textArray[i]);
-        textArray[i] = dots (textArray[i]);
-        textArray[i] = typo (textArray[i]);
+    for (var j = 0; j < textArray.length; j++) {
+        textArray[j] = ing (textArray[j]);
+        textArray[j] = dots (textArray[j]);
+        textArray[j] = typo (textArray[j]);
     }
 
 
@@ -46,21 +43,20 @@ function legastenize(noticeText) {
 
 function dots(word) {
 
-    if (word.contains(".")) {
-        word.replace(".", ":");
-    }
+    word = word.replace(".", ":");
+
     return word;
 }
 
 
 function ing(word) {
-    if (word.endsWith("ing.")) {
-        word.replace("ing.", "");
+    if (word.endsWith("ing")) {
+        word = word.replace("ing", "");
     }
-    else if (word.endsWith("ing")) {
-        word.replace("ing", "");
-    }
+
+
     return word;
+
 }
 
 function typo(word) {
